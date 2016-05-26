@@ -532,7 +532,9 @@ class PgQuery
 
     def deparse_create_function(node)
       output = []
-      output << 'CREATE FUNCTION'
+      output << 'CREATE'
+      output << 'OR REPLACE' if node["replace"]
+      output << 'FUNCTION'
 
       arguments = deparse_item_list(node['parameters']).join(', ')
 
