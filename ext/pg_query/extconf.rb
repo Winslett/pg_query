@@ -19,7 +19,7 @@ unless File.exist?("#{workdir}/libpg_query.tar.gz")
 end
 
 unless Dir.exist?(libdir)
-  system("tar -xf #{workdir}/libpg_query.tar.gz") || fail('ERROR')
+  system("tar --no-same-owner -xf #{workdir}/libpg_query.tar.gz") || fail('ERROR')
 end
 
 unless Dir.exist?(libfile)
